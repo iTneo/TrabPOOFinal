@@ -18,16 +18,17 @@ public class ContatoDAO {
 			e.printStackTrace();
 		}
 		return DriverManager.getConnection("jdbc:mysql://localhost/agenda",
-				"root", "root");
+				"root", "");
 	}
 
 	public Boolean insere(Contato contato) {
 		try(Connection conexao = conecta()){		
 			Statement comando = conexao.createStatement();
 			comando.executeUpdate(
-					"insert into Contatos(Nome,Telefone,Mail)values('"+ contato.getNome()+ "','"+ contato.getTelefone()	+ "','"+ contato.getEmail() + "')");
+					"insert into contatos(Nome,Telefone,Mail)values('"+ contato.getNome()+ "','"+ contato.getTelefone()	+ "','"+ contato.getEmail() + "')");
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			System.out.println("Falha ao adicionar");;
 			return false;
 		}
@@ -37,7 +38,7 @@ public class ContatoDAO {
 		try (Connection conexao = conecta()) {
 			Statement comando = conexao.createStatement();
 			ResultSet rs = comando
-					.executeQuery("select Nome,Telefone,Mail from Contatos where idCod = "
+					.executeQuery("select Nome,Telefone,Mail from contatos where idCod = "
 							+ codigo);
 			if (rs.next() == true) {
 				String nome = rs.getString("Nome");
