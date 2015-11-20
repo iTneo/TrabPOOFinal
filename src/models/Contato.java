@@ -1,10 +1,5 @@
 package models;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
-
 public class Contato {
 	private String nome;
 	private String telefone;
@@ -25,5 +20,41 @@ public class Contato {
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
+	}
+
+
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+
+	public String getNome() {
+		return this.nome;
 	}
 }
