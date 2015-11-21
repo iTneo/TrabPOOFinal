@@ -1,4 +1,3 @@
-import interfaces.Formulario;
 import interfaces.Menu;
 
 import java.awt.EventQueue;
