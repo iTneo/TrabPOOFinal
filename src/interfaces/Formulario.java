@@ -23,9 +23,10 @@ public class Formulario extends JFrame {
 	private JButton btnConsultaPorCdigo;
 	private JLabel lblCodigoBusca;
 	private JTextField tfBusca;
-
+	
+	
 	public Formulario() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 606, 405);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -33,33 +34,34 @@ public class Formulario extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel Nome = new JLabel("Nome:");
-		Nome.setBounds(23, 38, 193, 18);
+		Nome.setBounds(23, 38, 227, 20);
 		contentPane.add(Nome);
 
 		tfNome = new JTextField();
-		tfNome.setBounds(247, 38, 193, 18);
+		tfNome.setBounds(247, 38, 227, 20);
 		contentPane.add(tfNome);
 		tfNome.setColumns(10);
 
 		JLabel Telefone = new JLabel("Telefone:");
-		Telefone.setBounds(23, 68, 207, 18);
+		Telefone.setBounds(23, 68, 227, 20);
 		contentPane.add(Telefone);
 
 		tfTele = new JTextField();
-		tfTele.setBounds(247, 68, 207, 20);
+		tfTele.setBounds(247, 68, 227, 20);
 		contentPane.add(tfTele);
 		tfTele.setColumns(10);
 
 		JLabel Mail = new JLabel("e-mail:");
-		Mail.setBounds(23, 98, 227, 18);
+		Mail.setBounds(23, 98, 227, 20);
 		contentPane.add(Mail);
 
 		tfMail = new JTextField();
 		tfMail.setBounds(247, 98, 227, 20);
 		contentPane.add(tfMail);
 		tfMail.setColumns(10);
-
+		
 		JButton btnGravar = new JButton("Gravar");
+		//btnGravar.setBounds(247, 108, 228, 20);
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				labelResultado.setText("");
@@ -75,11 +77,11 @@ public class Formulario extends JFrame {
 				}
 			}
 		});
-		btnGravar.setBounds(247, 118, 89, 23);
+		btnGravar.setBounds(247, 138, 89, 23);
 		contentPane.add(btnGravar);
 
 		labelResultado = new JLabel("Resultado");
-		labelResultado.setBounds(361, 122, 229, 14);
+		labelResultado.setBounds(361, 141, 229, 14);
 		contentPane.add(labelResultado);
 
 		btnConsultaPorCdigo = new JButton("Consulta por Código");
