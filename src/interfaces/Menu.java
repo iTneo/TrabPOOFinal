@@ -21,7 +21,6 @@ public class Menu extends JFrame implements ActionListener {
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setSize(250,100);
 	JPanel painel = new JPanel();
-	//painel.setLayout(new GridLayout(2,3));
 	
 	Cadastrar = new JButton("Cadastrar");
 	Cadastrar.setText("Cadastrar");
