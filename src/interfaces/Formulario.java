@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -19,7 +20,6 @@ public class Formulario extends JFrame {
 	private JTextField tfNome;
 	private JTextField tfTele;
 	private JTextField tfMail;
-	private JLabel labelResultado;
 	private JButton btnConsultaPorCdigo;
 	private JLabel lblCodigoBusca;
 	private JTextField tfBusca;
@@ -63,31 +63,25 @@ public class Formulario extends JFrame {
 		JButton btnGravar = new JButton("Gravar");
 		//btnGravar.setBounds(247, 108, 228, 20);
 		btnGravar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				labelResultado.setText("");
-				
+			public void actionPerformed(ActionEvent arg0) {		
 				ContatoDAO dao = new ContatoDAO();
-				
 				Boolean insert = dao.insere(new Contato(tfNome.getText(), tfTele.getText(), tfMail.getText()));
 				if(insert){
-					labelResultado.setText("Contato Registrado");
+					JOptionPane.showMessageDialog(null,"Contato Registrado");
 					tfNome.setText("");
 					tfTele.setText("");
 					tfMail.setText("");
+				} else {
+					JOptionPane.showMessageDialog(null, "Falha ao inserir Contato");
 				}
 			}
 		});
 		btnGravar.setBounds(247, 138, 89, 23);
 		contentPane.add(btnGravar);
 
-		labelResultado = new JLabel("Resultado");
-		labelResultado.setBounds(361, 141, 229, 14);
-		contentPane.add(labelResultado);
-
 		btnConsultaPorCdigo = new JButton("Consulta por Código");
 		btnConsultaPorCdigo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				labelResultado.setText("");
 				tfNome.setText("");
 				tfTele.setText("");
 				tfMail.setText("");
@@ -105,7 +99,7 @@ public class Formulario extends JFrame {
 					tfTele.setText(contato.getTelefone());
 					tfMail.setText(contato.getEmail());
 				} else {
-					labelResultado.setText("Contato não Encontrado");
+					JOptionPane.showMessageDialog(null, "Contato não Encontrado");
 				}
 			}
 		});

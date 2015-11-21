@@ -7,6 +7,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContatoDAO {
 
@@ -40,7 +42,7 @@ public class ContatoDAO {
 			ResultSet rs = comando
 					.executeQuery("select Nome,Telefone,Mail from contatos where idCod = "
 							+ codigo);
-			if (rs.next() == true) {
+			if (rs.next()) {
 				String nome = rs.getString("Nome");
 				String telefone = rs.getString("Telefone");
 				String mail = rs.getString("Mail");
@@ -52,5 +54,23 @@ public class ContatoDAO {
 			System.out.println(ex.toString());
 			return null;
 		}
+	}
+	public List<Contato> buscaTodos(){
+		try (Connection conexao = conecta()) {
+			Statement comando = conexao.createStatement();
+			ResultSet rs = comando
+					.executeQuery("select Nome,Telefone,Mail from contatos");
+			List<Contato> contatos = new ArrayList<>();
+			while(rs.next()) {
+				String nome = rs.getString("Nome");
+				String telefone = rs.getString("Telefone");
+				String mail = rs.getString("Mail");
+				contatos.add(new Contato(nome, telefone, mail));
+			} 
+			return contatos;
+		} catch (SQLException ex) {
+			System.out.println(ex.toString());
+			return null;
+		}	
 	}
 }
