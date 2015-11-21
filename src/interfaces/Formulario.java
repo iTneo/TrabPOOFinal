@@ -60,7 +60,6 @@ public class Formulario extends JFrame {
 		tfMail.setColumns(10);
 
 		JButton btnGravar = new JButton("Gravar");
-		//btnGravar.setBounds(247, 108, 228, 20);
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {		
 				ContatoDAO dao = new ContatoDAO();
