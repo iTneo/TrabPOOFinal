@@ -1,4 +1,4 @@
-import interfaces.Formulario;
+import interfaces.Menu;
 
 import java.awt.EventQueue;
 
@@ -7,7 +7,7 @@ public class app {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Formulario frame = new Formulario();
+					Menu frame = new Menu();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
