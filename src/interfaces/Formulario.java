@@ -24,7 +24,6 @@ public class Formulario extends JFrame {
 	private JLabel lblCodigoBusca;
 	private JTextField tfBusca;
 	
-	
 	public Formulario() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 606, 405);
