@@ -9,7 +9,6 @@ public class app {
 			public void run() {
 				try {
 					Menu frame = new Menu();
-					//Formulario frame = new Formulario();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
