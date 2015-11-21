@@ -40,3 +40,6 @@ local.properties
 
 # STS (Spring Tool Suite)
 .springBeans
+
+# ARQUIVO DE SAIDA
+saida.txt
