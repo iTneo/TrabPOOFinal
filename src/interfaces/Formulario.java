@@ -59,7 +59,7 @@ public class Formulario extends JFrame {
 		tfMail.setBounds(247, 98, 227, 20);
 		contentPane.add(tfMail);
 		tfMail.setColumns(10);
-		
+
 		JButton btnGravar = new JButton("Gravar");
 		//btnGravar.setBounds(247, 108, 228, 20);
 		btnGravar.addActionListener(new ActionListener() {
