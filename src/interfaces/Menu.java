@@ -1,7 +1,5 @@
 package interfaces;
 
-import models.Contato;
-import DAO.ContatoDAO;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
