@@ -10,6 +10,7 @@ import javax.swing.JButton;
 
 import models.Contato;
 import DAO.ContatoDAO;
+import models.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -23,10 +24,12 @@ public class Formulario extends JFrame {
 	private JButton btnConsultaPorCdigo;
 	private JLabel lblCodigoBusca;
 	private JTextField tfBusca;
+	public JButton Sair;
 	
 	public Formulario() {
+		setTitle("Cadastro");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 606, 405);
+		setBounds(100, 100, 606, 215);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -74,44 +77,24 @@ public class Formulario extends JFrame {
 				}
 			}
 		});
-		btnGravar.setBounds(247, 138, 89, 23);
+		btnGravar.setBounds(250, 130, 90, 20);
 		contentPane.add(btnGravar);
 
-		btnConsultaPorCdigo = new JButton("Consulta por Código");
-		btnConsultaPorCdigo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				tfNome.setText("");
-				tfTele.setText("");
-				tfMail.setText("");
-				ContatoDAO dao = new ContatoDAO();
-				Contato contato;
-				try {
-					contato = dao.busca(Integer.parseInt(tfBusca.getText()));
-				} catch (NumberFormatException e) {
-					e.printStackTrace();
-					contato = null;
-				} 
+		JLabel Id = new JLabel("Numero do ID"+ );
+		Id.setBounds(360, 130, 90, 20);
+		contentPane.add(Id);
+		
+		Sair = new JButton("Sair");
+		Sair.setName("Sair");
+		Sair.setBounds(380, 130, 90, 20);
+        contentPane.add(Sair);
+		Sair.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			dispose();
 				
-				if (contato != null) {
-					tfNome.setText(contato.getNome());
-					tfTele.setText(contato.getTelefone());
-					tfMail.setText(contato.getEmail());
-				} else {
-					JOptionPane.showMessageDialog(null, "Contato não Encontrado");
-				}
 			}
 		});
-		
-		btnConsultaPorCdigo.setBounds(23, 212, 177, 23);
-		contentPane.add(btnConsultaPorCdigo);
-
-		lblCodigoBusca = new JLabel("Entre com o código de Busca:");
-		lblCodigoBusca.setBounds(10, 179, 243, 14);
-		contentPane.add(lblCodigoBusca);
-
-		tfBusca = new JTextField();
-		tfBusca.setBounds(247, 176, 86, 20);
-		contentPane.add(tfBusca);
-		tfBusca.setColumns(10);
 	}
 }

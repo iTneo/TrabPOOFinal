@@ -16,7 +16,7 @@ public class Menu extends JFrame implements ActionListener {
 	JButton Sair;
 	
 	setTitle("Menu");
-	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	setSize(250,100);
 	JPanel painel = new JPanel();
 	
